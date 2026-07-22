@@ -1,51 +1,67 @@
-
+// ===============================
 // DashText v2 Dashboard
+// Developed by Engr. Pelumi
+// ===============================
 
+// Load saved user information
 const username = localStorage.getItem("username") || "Guest";
+const room = localStorage.getItem("room") || "Global Room";
 
-const userElement = document.getElementById("username");
-
-if (userElement) {
-    userElement.textContent = username;
+// Display username
+const usernameElement = document.getElementById("username");
+if (usernameElement) {
+    usernameElement.textContent = username;
 }
 
-function openPage(page) {
-    window.location.href = page;
+// Display room name (if an element exists)
+const roomElement = document.getElementById("roomName");
+if (roomElement) {
+    roomElement.textContent = room;
 }
 
-// Buttons
-document.getElementById("chatCard")?.addEventListener("click", () => {
-    openPage("chat.html");
-});
+// Greeting based on time
+const greetingElement = document.getElementById("greeting");
 
-document.getElementById("classroomCard")?.addEventListener("click", () => {
-    openPage("classroom.html");
-});
+if (greetingElement) {
+    const hour = new Date().getHours();
 
-document.getElementById("teacherCard")?.addEventListener("click", () => {
-    openPage("teacher.html");
-});
+    if (hour < 12) {
+        greetingElement.textContent = "Good Morning";
+    } else if (hour < 18) {
+        greetingElement.textContent = "Good Afternoon";
+    } else {
+        greetingElement.textContent = "Good Evening";
+    }
+}
 
-document.getElementById("studentCard")?.addEventListener("click", () => {
-    openPage("student.html");
-});
+// Logout button
+const logoutBtn = document.getElementById("logoutBtn");
 
-document.getElementById("gamesCard")?.addEventListener("click", () => {
-    openPage("games.html");
-});
+if (logoutBtn) {
+    logoutBtn.addEventListener("click", function () {
 
-document.getElementById("cbtCard")?.addEventListener("click", () => {
-    openPage("cbt.html");
-});
+        if (confirm("Logout from DashText?")) {
 
-document.getElementById("aiCard")?.addEventListener("click", () => {
-    openPage("ai.html");
-});
+            localStorage.removeItem("username");
+            localStorage.removeItem("room");
 
-document.getElementById("profileCard")?.addEventListener("click", () => {
-    openPage("profile.html");
-});
+            window.location.href = "index.html";
+        }
 
-document.getElementById("settingsCard")?.addEventListener("click", () => {
-    openPage("settings.html");
-});
+    });
+}
+
+// Welcome message
+console.log("Welcome to DashText v2");
+console.log("User:", username);
+console.log("Room:", room);
+
+// Future features
+// Notifications
+// Online Users
+// Firebase Sync
+// Voice Calls
+// Video Calls
+// Classroom
+// Games
+// AI Tutor
