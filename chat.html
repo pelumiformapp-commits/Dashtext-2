@@ -1,1 +1,100 @@
 
+<!DOCTYPE html>
+<html lang="en">
+<head>
+
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>DashText Chat</title>
+
+<link rel="stylesheet" href="css/chat.css">
+
+<script src="https://www.gstatic.com/firebasejs/9.22.0/firebase-app-compat.js"></script>
+<script src="https://www.gstatic.com/firebasejs/9.22.0/firebase-database-compat.js"></script>
+
+</head>
+
+<body>
+
+<div class="chat-app">
+
+<header class="chat-header">
+
+<div class="left">
+
+<button id="backBtn">⬅️</button>
+
+<div>
+
+<h2>💬 DashText</h2>
+
+<p id="roomName">Global Room</p>
+
+</div>
+
+</div>
+
+<div class="right">
+
+<button id="onlineBtn">👥</button>
+
+<button id="callBtn">📞</button>
+
+<button id="videoBtn">📹</button>
+
+<button id="gameBtn">🎮</button>
+
+<button id="aiBtn">🤖</button>
+
+<button id="menuBtn">☰</button>
+
+</div>
+
+</header>
+
+<div id="messages" class="messages">
+
+<div class="system-message">
+
+Welcome to DashText 🎉
+
+</div>
+
+</div>
+
+<footer class="chat-footer">
+
+<button id="emojiBtn">😊</button>
+
+<button id="imageBtn">🖼️</button>
+
+<button id="fileBtn">📎</button>
+
+<button id="voiceBtn">🎤</button>
+
+<input
+type="text"
+id="messageInput"
+placeholder="Type a message...">
+
+<button id="sendBtn">
+
+Send
+
+</button>
+
+</footer>
+
+</div>
+
+<input type="file" id="imageFile" hidden>
+
+<input type="file" id="documentFile" hidden>
+
+<script src="js/firebase.js"></script>
+
+<script src="js/chat.js"></script>
+
+</body>
+</html>
